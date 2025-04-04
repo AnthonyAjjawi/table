@@ -7,8 +7,10 @@ let btn = document.getElementById("submit");
 
 let table = document.getElementById("table");
 
-let column;
-let row;
+let reset = document.getElementById("resetBtn");
+
+let column = [];
+let row = [];
 
 // function createTable(amount) {
 //     for(i = 1; i <= amount; i++) {
@@ -40,25 +42,31 @@ let row;
 
 
 
+window.addEventListener("load", () => {
 
-btn.addEventListener("submit", (e) => {
-    e.preventDefault();
-    for(let i = 1; i <= row; i++) {
-       row.push[i];
-       for(let j = 1; j <= column; j++) {
-       column.push[j];
-       }
-      table.textContent += row + ", " + column;
-    }
-    table.textContent = " ";
-    
 
-   function update() {
-    if (input.value == " ") {
-        table.textContent == " ";
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        for(let i = 1; i <= input.value; i++) {
+           let tr = document.createElement("tr");
+           for(let j = 1; j <= input.value; j++) {
+          let td = document.createElement("td");
+          td.textContent = `${i} ${j}`
+          tr.append(td);
+           }
+          table.append(tr);
+        }
         
-    }
-   }  
+    
+    
+    })
 
-
+   
 })
+
+
+reset.addEventListener("click", (e) => {
+    e.preventDefault();
+    form.reset();
+    table.textContent = "";
+} )
